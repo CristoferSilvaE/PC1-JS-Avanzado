@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PowerFit - Tu Centro de Entrenamiento</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+
+  <body>
+    <div id="barra-aviso" class="barra-aviso oculto">
+      <i class="fa-solid fa-bell"></i><span id="texto-aviso"></span>
+    </div>
+
+    <nav>
+      <div class="logo"><i class="fa-solid fa-dumbbell"></i> PowerFit</div>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#servicios">Planes</a></li>
+        <li><a href="#imc">Calculadora IMC</a></li>
+        <li><a href="#ubicacion">Ubicación</a></li>
+        <li><a href="#registro">Inscripción</a></li>
+      </ul>
+    </nav>
+
+    <header id="inicio" class="portada">
+      <h1>PowerFit Center</h1>
+      <p>Transforma tu estilo de vida con los mejores profesionales.</p>
+    </header>
+
+    <section id="nosotros">
+      <h2>Sobre PowerFit</h2>
+      <p>
+        Somos un emprendimiento enfocado en la salud y el acondicionamiento
+        físico con entrenamientos personalizados, instalaciones de primer nivel
+        y un ambiente motivador.
+      </p>
+    </section>
+
+    <section id="galeria">
+      <h2>Conoce nuestro local</h2>
+      <div class="carrusel">
+        <div class="imagenes-carrusel">
+          <div class="imagen-carrusel">
+            <img
+              src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop"
+              alt="Gym 1"
+            />
+          </div>
+          <div class="imagen-carrusel">
+            <img
+              src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=800&auto=format&fit=crop"
+              alt="Gym 2"
+            />
+          </div>
+          <div class="imagen-carrusel">
+            <img
+              src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop"
+              alt="Gym 3"
+            />
+          </div>
+        </div>
+
+        <button class="anterior" onclick="moverCarrusel(-1)">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="siguiente" onclick="moverCarrusel(1)">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <section id="planes">
+      <h2>Nuestros Servicios y Planes</h2>
+      <div class="lista-planes">
+        <div class="tarjeta-plan">
+          <img
+            src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=400&auto=format&fit=crop"
+            alt="Pase Estudiante"
+          />
+          <h3>Pase Estudiante</h3>
+          <p class="precio">S/ 79.90 / mes</p>
+          <p>
+            Acceso a zona de máquinas en horario matutino. Ideal para jóvenes.
+          </p>
+          <button class="boton-plan" onclick="document.getElementById('membresia').value = 'estudiante';
+              location.href = '#registro';">
+            Elegir Plan
+          </button>
+        </div>
+        <div class="tarjeta-plan">
+          <img
+            src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=400&auto=format&fit=crop"
+            alt="Plan Estándar"
+          />
+          <h3>Plan Estándar</h3>
+          <p class="precio">S/ 129.90 / mes</p>
+          <p>
+            Acceso completo a máquinas y clases grupales en cualquier horario.
+          </p>
+          <button
+            class="boton-plan" onclick=" document.getElementById('membresia').value = 'estandar';
+              location.href = '#registro';">
+            Elegir Plan
+          </button>
+        </div>
+        <div class="tarjeta-plan">
+          <img
+            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=400&auto=format&fit=crop"
+            alt="Plan VIP"
+          />
+          <h3>Plan VIP</h3>
+          <p class="precio">S/ 199.90 / mes</p>
+          <p>
+            Acceso total con entrenador personal incluido y rutinas exclusivas.
+          </p>
+          <button
+            class="boton-plan"
+            onclick="
+              document.getElementById('membresia').value = 'vip';
+              location.href = '#registro';">
+            Elegir Plan
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="imc">
+      <h2>Calculadora de IMC</h2>
+      <p style="text-align: center; margin-bottom: 1rem">
+        Descubre tu Índice de Masa Corporal
+      </p>
+      <form id="formularioIMC" onsubmit="return false;" class="calculadora-imc">
+        <div class="campo-formulario">
+          <label for="peso">Peso (kg):</label>
+          <input
+            type="number"
+            id="peso"
+            placeholder="Ej. 70"
+            step="0.1"
+            required
+          />
+        </div>
+        <div class="campo-formulario">
+          <label for="altura">Altura (cm):</label>
+          <input type="number" id="altura" placeholder="Ej. 175" required />
+        </div>
+        <button type="button" onclick="calcularIMC()">Calcular IMC</button>
+        <div id="resultado-imc" class="resultado-imc"></div>
+      </form>
+    </section>
+
+    <section id="registro">
+      <h2>Solicita tu Membresía</h2>
+      <form id="formularioRegistro" onsubmit="return false;">
+        <div class="campo-formulario">
+          <label for="nombre">Nombre Completo:</label>
+          <input
+            type="text"
+            id="nombre"
+            placeholder="Ej. Juan Pérez"
+            required
+          />
+        </div>
+        <div class="campo-formulario">
+          <label for="edad">Edad:</label>
+          <input
+            type="number"
+            id="edad"
+            placeholder="Ej. 20"
+            min="1"
+            required
+          />
+        </div>
+        <div class="campo-formulario">
+          <label for="membresia">Tipo de Membresía:</label>
+          <select id="membresia" required>
+            <option value="estudiante">Pase Estudiante</option>
+            <option value="estandar">Plan Estándar</option>
+            <option value="vip">Plan VIP</option>
+          </select>
+        </div>
+        <button type="button" onclick="registrarMembresia()">
+          Procesar Inscripción
+        </button>
+      </form>
+    </section>
+
+    <section id="ubicacion">
+      <h2>Encuéntranos Aquí</h2>
+      <div class="mapa">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15609.919245100651!2d-77.036667!3d-12.046374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8b613861219%3A0x6b00bfa38bdfdc17!2sLima%2C%20Per%C3%BA!5e0!3m2!1ses!2s!4v1698765432101!5m2!1ses!2s"
+          width="100%"
+          height="350"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
+
+    <footer>
+      <p><i class="fa-solid fa-phone"></i> Teléfono: +51 987 654 321</p>
+      <p>&copy; 2026 PowerFit - Todos los derechos reservados.</p>
+      <div class="redes-sociales">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
