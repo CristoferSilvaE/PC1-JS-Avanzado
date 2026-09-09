@@ -1,7 +1,4 @@
-// ==========================================
-// 1. Barra de avisos
-// ==========================================
-
+/* Barra de avisos */
 const mensajesAviso = [
   "🔥 ¡Juan acaba de inscribirse al Plan VIP!",
   "💪 Quedan pocos cupos para la clase de Spinning de hoy.",
@@ -23,10 +20,8 @@ function mostrarAvisoAleatorio() {
 
 mostrarAvisoAleatorio();
 
-// ==========================================
-// 2. Formulario de inscripción
-// ==========================================
 
+/* Formulario de inscripción */
 function registrarMembresia() {
   const nombre = document.getElementById("nombre").value;
   const edadIngresada = document.getElementById("edad").value;
@@ -35,6 +30,11 @@ function registrarMembresia() {
 
   if (nombre.trim() === "" || correo.trim() === "" || edadIngresada === "") {
     alert("Por favor, completa todos los campos.");
+    return;
+  }
+
+  if (!correo.includes("@")) {
+    alert("El correo debe contener @.");
     return;
   }
 
@@ -52,7 +52,7 @@ function registrarMembresia() {
 
   const mensaje = `
         ¡Hola, ${nombre}!
-        
+
         Has seleccionado el plan: ${membresia.toUpperCase()}.
         Correo registrado: ${correo}
         Estado: ${estadoRegistro}
@@ -63,10 +63,7 @@ function registrarMembresia() {
   alert(mensaje);
 }
 
-// ==========================================
-// 3. Carrusel de imágenes
-// ==========================================
-
+/* Carrusel de imágenes */
 let imagenActual = 0;
 
 function moverCarrusel(direccion) {
@@ -79,10 +76,7 @@ function moverCarrusel(direccion) {
     `translateX(-${imagenActual * 100}%)`;
 }
 
-// ==========================================
-// 4. Calculadora de IMC
-// ==========================================
-
+/* Calculadora de IMC */
 function calcularIMC() {
   const peso = parseFloat(document.getElementById("peso").value);
   const alturaCm = parseFloat(document.getElementById("altura").value);
